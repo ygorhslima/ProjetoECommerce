@@ -1,0 +1,167 @@
+.banner-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  background-color: #e5e7eb;
+  aspect-ratio: 16 / 5;
+  min-height: 160px;
+  margin: 20px;
+}
+
+.banner-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 700ms ease;
+}
+
+.banner-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.banner-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.banner-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: overlay;
+  opacity: 0.4;
+}
+.banner-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 2.3rem;
+  padding-right: 2.3rem;
+  text-align: left;
+  font-family: var(--font-titulo);
+}
+
+.banner-content.align-right {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.banner-tag {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.banner-title {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-family: "Outfit", sans-serif;
+  margin-bottom: 0.375rem;
+  filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04))
+    drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1));
+}
+
+@media (min-width: 640px) {
+  .banner-title {
+    font-size: 1.875rem;
+  }
+}
+
+.banner-subtitle {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.banner-button {
+  background-color: #ffffff;
+  color: #1a6b5a;
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  transition: background-color 150ms ease;
+}
+
+.banner-button:hover {
+  background-color: #fff5f3;
+}
+
+.banner-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color 150ms ease;
+  z-index: 10;
+}
+
+.banner-control:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.banner-control.prev {
+  left: 0.75rem;
+}
+
+.banner-control.next {
+  right: 0.75rem;
+}
+
+.dots{
+    position: absolute;
+    bottom: 0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.375rem;
+    z-index: 10;
+}
+
+.dot-item{
+  width: 0.5rem;  
+  height: 0.5rem; 
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.5); 
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 300ms ease;
+}
+
+.dot-item:not(.active):hover{
+    background-color: rgba(255, 255, 255, 0.7);
+}
+.dot-item.active{
+    width: 1.25rem;
+    height: 0.5rem;
+    background-color: #ffffff;
+}

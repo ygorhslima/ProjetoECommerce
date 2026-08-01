@@ -8,7 +8,7 @@ import { MdSearch } from 'react-icons/md';
 
 export default function Header(){
     return (
-        <header>
+        <header className='header'>
             <div className='logo'>
                 <div>
                     <RiShoppingBag4Fill fontSize={30} id='logo-icon'/>
