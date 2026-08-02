@@ -1,6 +1,4 @@
 import './style.css';
-
-import { IoMdPerson } from "react-icons/io";
 import { MdFavoriteBorder } from "react-icons/md";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { RiShoppingBag4Fill } from "react-icons/ri";

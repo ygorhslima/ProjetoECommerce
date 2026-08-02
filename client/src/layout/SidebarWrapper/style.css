@@ -1,7 +1,6 @@
 .layout-wrapper
 {
     display: flex;
-    height: 100vh;
 }
 .wrapper{
     flex: 1;
@@ -20,13 +19,9 @@ main{
     gap: 20px;
 }
 
-@media screen and (max-width: 768px) {
-    .layout-wrapper {
-        flex-direction: column;
-        height: auto; /* Permite que o conteúdo cresça */
-    }
-    .wrapper {
-        height: auto; /* Remove a altura fixa no mobile */
-        overflow-y: visible; /* Deixa a rolagem para a página */
+@media screen and (max-width: 768px){
+    main{
+        padding: 10px;
+        
     }
 }
