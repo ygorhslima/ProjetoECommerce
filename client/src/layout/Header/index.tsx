@@ -5,15 +5,22 @@ import { MdFavoriteBorder } from "react-icons/md";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { RiShoppingBag4Fill } from "react-icons/ri";
 import { MdSearch } from 'react-icons/md';
+import ButtonHamburger from '../ButtonHamburger';
 
-export default function Header(){
+interface PropsHeader{
+    onToggleMenu: () => void;
+}
+export default function Header({onToggleMenu}:PropsHeader){
     return (
         <header className='header'>
-            <div className='logo'>
-                <div>
-                    <RiShoppingBag4Fill fontSize={30} id='logo-icon'/>
+            <div style={{display:"flex", alignItems:"center", gap:"10px"}}>
+                <ButtonHamburger onClick={onToggleMenu}/>
+                <div className='logo'>
+                    <div>
+                        <RiShoppingBag4Fill fontSize={30} id='logo-icon'/>
+                    </div>
+                    <h1>ShopTech</h1> 
                 </div>
-                <h1>ShopTech</h1> 
             </div>
 
             <div className='container-input'>
@@ -21,12 +28,7 @@ export default function Header(){
                 <button><MdSearch fontSize={14}/></button>
             </div>
 
-            <div className='links-header'>    
-                <a href='#' className='link'>
-                    <IoMdPerson className='icons'/>
-                    <p>Entrar</p>
-                </a>
-
+            <div className='links-header'>
                 <a href='#' className='link'>
                     <MdFavoriteBorder className='icons'/>
                     <p>Favoritos</p>

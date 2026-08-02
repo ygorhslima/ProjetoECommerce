@@ -1,0 +1,77 @@
+:root {
+  --background-sidebar: var(--primary-light);
+  --sidebar-width: 250px;
+  --link-active-bg: var(--primary-dark);
+  --accent-color: #3b82f6; /* Azul para destaques */
+}
+
+h1{
+    text-align: center;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Alinha os itens para preencher a largura */
+    justify-content: flex-start; /* Alinha o conteúdo ao topo */
+    width: var(--sidebar-width);
+    height: 100vh; /* Ocupa a altura total da tela */
+    background-color: var(--background-sidebar);
+    overflow-y: auto;
+    color: var(--surface);
+    font-family: var(--font-padrao);
+    transition: margin-left 0.3s ease, opacity 0.3s ease;
+    border-right: 1px solid var(--primary-dark); /* Borda mais sutil */
+    position: sticky;
+    top: 0; /* Alinha o topo da sidebar com o topo da página */
+    padding: 20px 10px; /* Adiciona espaçamento interno */
+}
+
+/* Estilização dos Links */
+.sidebar .link-sidebar {
+    text-decoration: none;
+    color: var(--surface);
+    padding: 5px;
+    font-size: 14px;
+    font-weight: 600; /* Deixa o texto um pouco mais forte */
+    transition: background-color 0.2s ease, color 0.2s ease;
+    display: flex;
+    align-items: center;
+    border-radius: 8px; /* Bordas um pouco menos arredondadas */
+    margin: 4px 0;
+    gap: 5px; /* Espaço entre o ícone e o texto */
+}
+
+.sidebar .link-sidebar:hover {
+    background-color: var(--primary-dark);
+    color: white;
+}
+
+/* Estilo para o link ativo (página atual) */
+.sidebar .link-sidebar.active {
+    background-color: var(--accent); /* Cor de destaque do seu tema */
+    color: #111; /* Cor escura para contrastar com o fundo de destaque */
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar .link-sidebar.active:hover {
+    background-color: #d6a53a; /* Variação da cor de destaque no hover */
+}
+
+/* Divisores ou Títulos de Seção (Igual ao "CORE" e "ACTION" da imagem) */
+
+
+.sidebar.closed {
+    margin-left: calc(var(--sidebar-width) * -1);
+    opacity: 0;
+    visibility: hidden;
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        position: relative; /* Remove o comportamento "sticky" */
+        width: 100%;
+        height: auto; /* Altura se ajusta ao conteúdo */
+    }
+}

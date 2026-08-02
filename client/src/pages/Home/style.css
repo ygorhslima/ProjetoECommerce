@@ -1,0 +1,9 @@
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    padding: 5px;
+    background-color: #F4F6F5;   
+}

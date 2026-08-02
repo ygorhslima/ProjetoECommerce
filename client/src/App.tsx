@@ -1,17 +1,14 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import Header from "./layout/Header";
-import NavigationCategory from "./layout/NavigationCategory";
+import SidebarWrapper from "./layout/SidebarWrapper";
 function App() {
   return (
     <>
-      <div>
-        <Header/>
-        <NavigationCategory/>
-      </div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+           <Route element={<SidebarWrapper />}>
+            <Route path="/" element={<Home />} />
+           </Route>
         </Routes>
       </BrowserRouter>
     </>
