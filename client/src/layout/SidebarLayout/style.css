@@ -11,7 +11,7 @@ h1{
 
 .sidebar {
     display: flex;
-    justify-content: flex-start; /* Alinha o conteúdo ao topo */
+    justify-content: flex-start;
     width: var(--sidebar-width);
     height: 100vh; /* Ocupa a altura total da tela */
     background-color: var(--background-sidebar);
@@ -20,6 +20,9 @@ h1{
     font-family: var(--font-padrao);
     transition: margin-left 0.3s ease, opacity 0.3s ease;
     border-right: 1px solid var(--primary-dark); /* Borda mais sutil */
+    position: sticky;
+    top: 0; /* Alinha o topo da sidebar com o topo da página */
+    padding: 20px 10px; /* Adiciona espaçamento interno */
 }
 
 /* Estilização dos Links */
@@ -65,8 +68,6 @@ h1{
 
 @media screen and (max-width: 768px) {
     .sidebar {
-        position: relative; /* Remove o comportamento "sticky" */
-        width: 100%;
-        height: auto; /* Altura se ajusta ao conteúdo */
+        display: none;
     }
 }

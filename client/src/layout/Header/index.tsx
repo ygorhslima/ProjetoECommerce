@@ -12,8 +12,8 @@ export default function Header({onToggleMenu}:PropsHeader){
     return (
         <header className='header'>
             <div style={{display:"flex", alignItems:"center", gap:"10px"}}>
-                <ButtonHamburger onClick={onToggleMenu}/>
                 <div className='logo'>
+                    <ButtonHamburger onClick={onToggleMenu}/>
                     <div>
                         <RiShoppingBag4Fill fontSize={30} id='logo-icon'/>
                     </div>

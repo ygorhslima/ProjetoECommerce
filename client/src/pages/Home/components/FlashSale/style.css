@@ -80,3 +80,9 @@
     gap: 5px;
 }
 
+@media screen and (max-width: 768px) {
+    .list-products-flash-sale{
+        grid-template-columns: repeat(2,1fr);
+        grid-auto-flow: row;
+    }   
+}

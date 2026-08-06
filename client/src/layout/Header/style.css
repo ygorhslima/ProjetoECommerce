@@ -1,4 +1,4 @@
-.header{
+.header {
   font-family: var(--font-titulo);
   background-color: var(--primary);
   display: flex;
@@ -11,55 +11,54 @@
   z-index: 1000;
 }
 
-.header .logo{
+.header .logo {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.header .logo div{
+.header .logo div {
   padding: 10px;
   border-radius: 8px;
   display: flex;
   align-items: center;
   background-color: var(--surface);
 }
-.header .logo #logo-icon{
+.header .logo #logo-icon {
   color: var(--primary);
 }
-.header .container-input{
+.header .container-input {
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.318);
   border-radius: 10px;
 }
-.header .container-input input{
+.header .container-input input {
   padding: 14px;
   min-width: 100%;
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
   background: var(--surface);
 }
-.header .container-input button{
+.header .container-input button {
   padding: 14px;
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
   background-color: var(--primary-dark);
-  color: var(--surface);;
+  color: var(--surface);
 }
-.header .links-header{
+.header .links-header {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
-.icons{
+.icons {
   font-size: 25px;
 }
 
-@media screen and (max-width: 768px){
-  .header .logo{
+@media screen and (max-width: 768px) {
+  .header .logo {
     display: none;
   }
-  
 }
