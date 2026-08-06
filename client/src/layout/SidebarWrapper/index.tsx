@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Header from "../Header";
 import SidebarLayout from "../SidebarLayout";
 import { useState } from "react";
+import Footer from '../Footer';
 
 export default function SidebarWrapper() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -17,6 +18,7 @@ export default function SidebarWrapper() {
         <main>
           <Outlet />
         </main>
+        <Footer/>
       </div>
     </div>
   );
