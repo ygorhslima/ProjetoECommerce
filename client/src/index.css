@@ -1,16 +1,12 @@
 :root{
   --primary: #1a6b5a; /*- Verde-teal profundo	Header, botões, destaques*/
-
   --primary-dark: #124739; /*Hover states*/
-  
   --primary-light: #228a71; /*Gradients, variações*/
-  
   --accent: #e8b84b; /*- Âmbar dourado	Estrelas, badges de quantidade, countdown*/
-  
   --surface: #f4f6f5; /*- Branco esverdeado	Background geral*/
-  
   --border: #e4e9e7; /*- Divisores sutis*/
-
+  --color-link-footer: #97A0AD;
+  --background-footer: #181F1E;
   --font-padrao: "Inter", sans-serif;
   --font-titulo: "Outfit", sans-serif;
 }
@@ -19,6 +15,10 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+}
+
+body{
+  font-size: 1rem;
 }
 button, a, input, select{
   border: none;
