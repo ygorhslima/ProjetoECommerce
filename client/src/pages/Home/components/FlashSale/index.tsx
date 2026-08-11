@@ -19,7 +19,9 @@ export default function FlashSale() {
         {PRODUCTS.map((el) => (
           <div className="card" key={el.id}>
             <div className="image">
+              <span></span>
               <img src={el.image} alt={el.name} />
+              <button className='btn_add_cart'> + Adicionar ao carrinho</button>
             </div>
             <div className="info">
               <p className="name">{el.name}</p>

@@ -40,7 +40,7 @@ const certificates = ["SSL", "PCI DSS", "Reclame Aqui"];
 
 export default function Footer() {
   return (
-    <footer>
+    <footer className="footer">
       <article className="footer-article">
         <section className="content">
           <div className="content-title">

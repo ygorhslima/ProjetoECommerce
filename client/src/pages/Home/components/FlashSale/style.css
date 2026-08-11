@@ -32,19 +32,35 @@
     border: 1px solid var(--border);
     background-color: white;
     border-radius: 10px;
-    
+    transition: 0.3s ease-in-out;
+}
+.card:hover{
+    border: 1px solid var(--primary-light);
 }
 .image{
-    width: 100%;
-    height: 250px;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    max-height: 100%;
     overflow: hidden;
     border-radius: 10px;
     margin-bottom:20px;
+    text-align: center;
 }
 .image img{
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: cover;
+}
+.btn_add_cart{
+    color: var(--surface);
+    background-color: var(--primary-light);
+    padding: 10px;
+    transition: 0.3s ease;
+    transform: translateY(-30%);
+}
+.btn_add_cart:hover{
+    background-color: var(--primary-dark);
 }
 .info{
     display: flex;
