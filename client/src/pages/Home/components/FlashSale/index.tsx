@@ -1,15 +1,16 @@
-import './style.css'
+import "./style.css";
 import { FcFlashOn } from "react-icons/fc";
 import { PRODUCTS } from "../../../../fakeDB";
+import { BsHeart } from "react-icons/bs";
 
 export default function FlashSale() {
   return (
-    <section className='flash-sale-container'>
+    <section className="flash-sale-container">
       <header>
-        <span>
+        <div>
           <FcFlashOn fontSize={30} />
           Flash Sale
-        </span>
+        </div>
         <p>
           Termina em: <span>05</span>:<span>37</span>:<span>26</span>
         </p>
@@ -19,9 +20,11 @@ export default function FlashSale() {
         {PRODUCTS.map((el) => (
           <div className="card" key={el.id}>
             <div className="image">
-              <span></span>
+              <button className="btn_add_favorite_item">
+                <BsHeart />
+              </button>
               <img src={el.image} alt={el.name} />
-              <button className='btn_add_cart'> + Adicionar ao carrinho</button>
+              <button className="btn_add_cart"> + Adicionar ao carrinho</button>
             </div>
             <div className="info">
               <p className="name">{el.name}</p>

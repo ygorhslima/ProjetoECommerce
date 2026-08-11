@@ -1,16 +1,14 @@
-import { BsX } from "react-icons/bs";
+import { BsBagDash, BsX } from "react-icons/bs";
 import './style.css';
 import { useState } from "react";
-import FlashSale from "../../pages/Home/components/FlashSale";
 
-// 1. Defina a interface para as props
 interface PropsCart {
     onClose: () => void;
 }
 
 export default function CartComponent({ onClose }: PropsCart) {
     const valor: number = 0;
-    const [isEmpty, setIsEmpty] = useState(true);
+    const [isEmpty, setIsEmpty] = useState(false);
 
     return (
         <div className="cart-modal">
@@ -18,16 +16,17 @@ export default function CartComponent({ onClose }: PropsCart) {
                 <header className="cart-header">
                     <h3>Meu carrinho (0)</h3>
                     {/* 2. Conecte a função de fechar */}
-                    <button onClick={onClose}><BsX fontSize={30}/></button>
+                    <button onClick={onClose}><BsX fontSize={40}/></button>
                 </header>
                 <section className="cart-section">
                     {isEmpty ? (
-                        <FlashSale/>
+                       <></>
                     ) : (
-                        <>
+                        <div>
+                            <BsBagDash fontSize={60}/>
                             <h4>Carrinho vazio</h4>
                             <p>Adicione produtos para continuar</p>
-                        </>
+                        </div>
                     )}
                 </section>
                 <footer className="cart-footer">
@@ -37,7 +36,7 @@ export default function CartComponent({ onClose }: PropsCart) {
                     </div>
                     <div className="actions">
                         <button className="btn-finalizar-compra">Finalizar Compra</button>
-                        <button onClick={onClose}>Continuar Comprando</button>
+                        <button className="btn-continuar-comprando" onClick={onClose}>Continuar Comprando</button>
                     </div>
                 </footer>
             </div>
