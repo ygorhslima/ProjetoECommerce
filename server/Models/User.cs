@@ -10,7 +10,7 @@ namespace server.Models
     {
         [Key]
         [Column("id")]
-        public int Id { get; set; }  
+        public int Id { get; set; }
         
         [Required]
         [Column("name")]
