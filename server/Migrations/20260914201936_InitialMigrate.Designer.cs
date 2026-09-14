@@ -12,8 +12,8 @@ using server.Data;
 namespace server.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260818212015_AddAttributePhoneNumber")]
-    partial class AddAttributePhoneNumber
+    [Migration("20260914201936_InitialMigrate")]
+    partial class InitialMigrate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -280,16 +280,21 @@ namespace server.Migrations
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()
-                        .HasColumnType("longtext")
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("password_hash");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
-                        .HasColumnType("longtext")
+                        .HasMaxLength(17)
+                        .HasColumnType("varchar(17)")
                         .HasColumnName("phone_number");
 
                     b.HasKey("Id")
                         .HasName("pk_users");
+
+                    b.HasIndex("PasswordHash")
+                        .IsUnique()
+                        .HasDatabaseName("ix_users_password_hash");
 
                     b.ToTable("users", (string)null);
                 });
