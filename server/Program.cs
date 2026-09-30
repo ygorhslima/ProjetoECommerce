@@ -1,6 +1,6 @@
 using server.Data;
-using server.Interfaces;
-using server.Services;
+using server.Features.product;
+using server.Features.user;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();

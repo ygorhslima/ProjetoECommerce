@@ -1,6 +1,4 @@
-using server.Dtos;
-
-namespace server.Interfaces;
+namespace server.Features.user;
 
 public interface IUserService
 {

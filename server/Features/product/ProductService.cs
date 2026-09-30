@@ -1,10 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using server.Data;
-using server.Dtos;
-using server.Interfaces;
-using server.Mappings;
 
-namespace server.Services
+namespace server.Features.product
 {
     public class ProductService(AppDbContext context) : IProductService
     {

@@ -1,7 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-
-namespace server.Dtos;
-
+namespace server.Features.user;
 public record UserReadDto(
     int Id,
     string Name,

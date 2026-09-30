@@ -1,6 +1,4 @@
-using server.Dtos;
-
-namespace server.Interfaces
+namespace server.Features.product
 {
     public interface IProductService
     {

@@ -1,5 +1,7 @@
+
 using System.ComponentModel.DataAnnotations;
-namespace server.Dtos;
+
+namespace server.Features.product;
 
 public record ProductReadDto(
     int Id,

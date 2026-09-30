@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using server.Dtos;
-using server.Interfaces;
 
-namespace server.Controllers;
+namespace server.Features.user;
 
 [ApiController]
 [Route("api/[controller]")]

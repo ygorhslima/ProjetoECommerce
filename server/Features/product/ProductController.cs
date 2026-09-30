@@ -1,9 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using server.Dtos;
-using server.Interfaces;
-using server.Models;
 
-namespace server.Controllers
+namespace server.Features.product
 {
     [ApiController]
     [Route("api/[controller]")]

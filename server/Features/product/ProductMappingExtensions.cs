@@ -1,7 +1,6 @@
-using server.Dtos;
 using server.Models;
 
-namespace server.Mappings
+namespace server.Features.product
 {
     public static class ProductMappingExtensions
     {
