@@ -1,14 +1,9 @@
 import './style.css'
-import BannerCarousel from "./components/BannerCarousel";
-import CategorySection from "./components/CategorySection";
-import FlashSale from "./components/FlashSale";
-
+import ProductList from "./components/ProductsList";
 export default function Home(){
     return(
         <main>
-            <BannerCarousel/>
-            <CategorySection/>
-            <FlashSale/>
+            <ProductList/>
         </main>
     )
 }

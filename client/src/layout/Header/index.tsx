@@ -1,9 +1,10 @@
 import './style.css';
 import { MdFavoriteBorder } from "react-icons/md";
 import { MdOutlineShoppingBag } from "react-icons/md";
-import { RiShoppingBag4Fill } from "react-icons/ri";
 import { MdSearch } from 'react-icons/md';
 import ButtonHamburger from '../ButtonHamburger';
+import { useSearch } from '../../context/SearchContext';
+import { RiShoppingBag4Fill } from 'react-icons/ri';
 
 interface PropsHeader{
     onToggleMenu: () => void;
@@ -11,6 +12,8 @@ interface PropsHeader{
 }
 
 export default function Header(props:PropsHeader){
+    const {setSearchTerm} = useSearch();
+
     return (
         <>
             <header className='header'>
@@ -25,7 +28,7 @@ export default function Header(props:PropsHeader){
                 </div>
 
                 <div className='container-input'>
-                    <input type="text" placeholder="Buscar produtos, marcas e muito mais" />
+                    <input type="text" onChange={(e) => setSearchTerm(e.target.value)} placeholder="Buscar produtos, marcas e muito mais" />
                     <button><MdSearch fontSize={14}/></button>
                 </div>
 

@@ -1,23 +1,25 @@
 import { Link } from "react-router-dom";
 import "./style.css";
-import { CATEGORIES } from "../../fakeDB";
+import { useCategory } from "../../context/CategoryContext";
 
-interface PropsSidebarLayout{
-    isOpen: boolean    
+interface PropsSidebarLayout {
+  isOpen: boolean;
 }
 
-export default function SidebarLayout({isOpen}: PropsSidebarLayout) {
+export default function SidebarLayout({ isOpen }: PropsSidebarLayout) {
+  const { category } = useCategory();
+
   return (
     <div className={`sidebar ${isOpen ? "open" : "closed"}`}>
       <div className="dropdown-content">
         <div className="view-books">
-          <Link to={"#"} className="link-sidebar">
+          <Link to="/" className="link-sidebar">
             Todas as categorias
           </Link>
         </div>
-        {CATEGORIES.map((el) => (
+        {category.map((el) => (
           <div className="links-categories" key={el.id}>
-            <Link to={`${"#"}/${el.id}`} className="link-sidebar">
+            <Link to={`/${el.id}`} className="link-sidebar">
               {el.name}
             </Link>
           </div>

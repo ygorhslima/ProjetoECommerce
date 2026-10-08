@@ -1,11 +1,11 @@
-.flash-sale-container {
+.product-list-container {
     background-color: #fff;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-.flash-sale-container header {
+.product-list-container header {
     display: flex;
     text-align: center;
     align-items: center;
@@ -18,13 +18,13 @@
     gap: 12px;
 }
 
-.flash-sale-container header p {
+.product-list-container header p {
     font-size: 12px;
     margin: 0;
     opacity: 0.9;
 }
 
-.flash-sale-container header a {
+.product-list-container header a {
     color: currentColor;
     font-size: 12px;
     text-decoration: underline;
@@ -33,7 +33,7 @@
 }
 
 /* Grid Fluido e Compacto */
-.list-products-flash-sale {
+.product-list-grid {
     display: grid;
     /* Ajusta automaticamente o número de colunas conforme o espaço disponível */
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -167,13 +167,13 @@
 
 /* Otimização para telas pequenas (Mobile) */
 @media screen and (max-width: 480px) {
-    .list-products-flash-sale {
+    .product-list-grid {
         grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
         gap: 6px;
         padding: 6px;
     }
 
-    .flash-sale-container header {
+    .product-list-container header {
         font-size: 12px;
         padding: 8px 10px;
     }

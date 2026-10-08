@@ -1,12 +1,15 @@
+import type { Category } from "./Category";
+
 export interface Product {
   id: number;
+  categoryId: number;
+  category?: Category;
   name: string;
   price: number;
   originalPrice: number;
-  image: string;
+  imageUrl: string;
   rating: number;
-  reviews: number;
-  sold: number;
-  badge?: "sale" | "new" | "hot" | "freeship";
-  category: string;
+  reviewsCount: number;
+  soldCount: number;
+  badge?: string;
 }
