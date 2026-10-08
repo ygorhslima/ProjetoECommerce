@@ -20,7 +20,9 @@ export default function CartComponent({ onClose }: PropsCart) {
                 </header>
                 <section className="cart-section">
                     {isEmpty ? (
-                       <></>
+                       <>
+                       
+                       </>
                     ) : (
                         <div>
                             <BsBagDash fontSize={60}/>

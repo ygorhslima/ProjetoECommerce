@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useSearch } from "../../../../context/SearchContext";
 import useProduct from "../../../../hooks/useProduct";
 
-export default function FlashSale() {
+export default function ProductsList() {
   const { idCategory } = useParams<{ idCategory?: string }>();
   const { searchTerm } = useSearch();
   const { products, loading, error } = useProduct(searchTerm, idCategory);

@@ -1,5 +1,8 @@
 using server.Data;
 using server.Features.category;
+using server.Features.cartItem;
+using server.Features.order;
+using server.Features.orderItem;
 using server.Features.product;
 using server.Features.user;
 
@@ -23,6 +26,9 @@ builder.Services.AddCors(options =>
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IOrderItemService, OrderItemService>();
+builder.Services.AddScoped<ICartItemService, CartItemService>();
 
 var app = builder.Build();
 
