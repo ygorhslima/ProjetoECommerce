@@ -24,6 +24,17 @@ namespace server.Models
         [Column("user_id")]
         public int UserId { get; set; }
 
+        // Existing orders can lack a product because they predate single-product orders.
+        [Column("product_id")]
+        public int? ProductId { get; set; }
+
+        [ForeignKey(nameof(ProductId))]
+        public Product? Product { get; set; }
+
+        [Required]
+        [Column("quantity")]
+        public int Quantity { get; set; } = 1;
+
         /// <summary>
         /// Propriedade de navegação para o usuário associado ao pedido.
         /// </summary>
@@ -51,9 +62,5 @@ namespace server.Models
         [Column("created_at")]
         public DateTime CreatedAt { get; set; }
 
-        /// <summary>
-        /// Coleção de itens pertencentes a este pedido (Relacionamento 1-N).
-        /// </summary>
-        public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
     }
 }

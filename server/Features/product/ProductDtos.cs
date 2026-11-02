@@ -5,7 +5,6 @@ namespace server.Features.product;
 
 public record ProductReadDto(
     int Id,
-    int CategoryId,
     string Name,
     decimal Price,
     decimal OriginalPrice,
@@ -17,7 +16,6 @@ public record ProductReadDto(
 );
 
 public record ProductCreateDto(
-    [Required] int CategoryId,
     [Required] string Name,
     [Required] decimal Price,
     [Required] decimal OriginalPrice,
@@ -29,19 +27,6 @@ public record ProductCreateDto(
 );
 
 public record ProductUpdateDto(
-    [Required] int CategoryId,
-    [Required] string Name,
-    [Required] decimal Price,
-    [Required] decimal OriginalPrice,
-    string? ImageUrl,
-    [Required] int Rating,
-    [Required] int ReviewsCount,
-    [Required] int SoldCount,
-    [Required] string Badge
-);
-
-public record ProductDeleteDto(
-    [Required] int CategoryId,
     [Required] string Name,
     [Required] decimal Price,
     [Required] decimal OriginalPrice,

@@ -1,13 +1,13 @@
 import "./style.css";
 import { BsHeart } from "react-icons/bs";
-import { useParams } from "react-router-dom";
 import { useSearch } from "../../../../context/SearchContext";
+import { useCart } from "../../../../context/CartContext";
 import useProduct from "../../../../hooks/useProduct";
 
 export default function ProductsList() {
-  const { idCategory } = useParams<{ idCategory?: string }>();
   const { searchTerm } = useSearch();
-  const { products, loading, error } = useProduct(searchTerm, idCategory);
+  const { addProduct } = useCart();
+  const { products, loading, error } = useProduct(searchTerm);
 
   if (loading) {
     return <p>Carregando produtos...</p>;
@@ -30,7 +30,9 @@ export default function ProductsList() {
                   <BsHeart />
                 </button>
                 <img src={el.imageUrl} alt={el.name} />
-                <button className="btn_add_cart"> + Adicionar ao carrinho</button>
+                <button className="btn_add_cart" onClick={() => addProduct(el)}>
+                  + Adicionar ao carrinho
+                </button>
               </div>
               <div className="info">
                 <p className="name">{el.name}</p>

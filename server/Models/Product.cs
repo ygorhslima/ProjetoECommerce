@@ -17,18 +17,6 @@ namespace server.Models
         public int Id { get; set; }
 
         /// <summary>
-        /// Identificador da categoria à qual o produto pertence (Chave Estrangeira).
-        /// </summary>
-        [Column("category_id")]
-        public int CategoryId { get; set; }
-
-        /// <summary>
-        /// Propriedade de navegação para a categoria associada.
-        /// </summary>
-        [ForeignKey(nameof(CategoryId))]
-        public Category? Category { get; set; }
-
-        /// <summary>
         /// Nome do produto.
         /// </summary>
         [Required]

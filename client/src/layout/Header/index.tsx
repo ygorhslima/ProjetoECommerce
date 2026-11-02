@@ -2,24 +2,23 @@ import './style.css';
 import { MdFavoriteBorder } from "react-icons/md";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { MdSearch } from 'react-icons/md';
-import ButtonHamburger from '../ButtonHamburger';
 import { useSearch } from '../../context/SearchContext';
 import { RiShoppingBag4Fill } from 'react-icons/ri';
+import { useCart } from '../../context/CartContext';
 
 interface PropsHeader{
-    onToggleMenu: () => void;
     onToggleCartComponent: () => void;
 }
 
 export default function Header(props:PropsHeader){
     const {setSearchTerm} = useSearch();
+    const {itemCount} = useCart();
 
     return (
         <>
             <header className='header'>
                 <div style={{display:"flex", alignItems:"center", gap:"10px"}}>
                     <div className='logo'>
-                        <ButtonHamburger onClick={props.onToggleMenu}/>
                         <div>
                             <RiShoppingBag4Fill fontSize={30} id='logo-icon'/>
                         </div>
@@ -38,7 +37,10 @@ export default function Header(props:PropsHeader){
                         <p>Favoritos</p>
                     </button>
                     <button className='btn-action' onClick={props.onToggleCartComponent}>
-                        <MdOutlineShoppingBag className='icons'/>
+                        <span className="cart-action-icon">
+                            <MdOutlineShoppingBag className='icons'/>
+                            {itemCount > 0 && <span className="cart-count">{itemCount}</span>}
+                        </span>
                         <p>Carrinho</p>
                     </button>
                 </div>

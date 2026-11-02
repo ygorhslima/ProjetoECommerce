@@ -22,59 +22,6 @@ namespace server.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("server.Models.CartItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("id");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int")
-                        .HasColumnName("product_id");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int")
-                        .HasColumnName("quantity");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int")
-                        .HasColumnName("user_id");
-
-                    b.HasKey("Id")
-                        .HasName("pk_cart_items");
-
-                    b.HasIndex("ProductId")
-                        .HasDatabaseName("ix_cart_items_product_id");
-
-                    b.HasIndex("UserId")
-                        .HasDatabaseName("ix_cart_items_user_id");
-
-                    b.ToTable("cart_items", (string)null);
-                });
-
-            modelBuilder.Entity("server.Models.Category", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("id");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("name");
-
-                    b.HasKey("Id")
-                        .HasName("pk_categories");
-
-                    b.ToTable("categories", (string)null);
-                });
-
             modelBuilder.Entity("server.Models.Order", b =>
                 {
                     b.Property<int>("Id")
@@ -87,6 +34,14 @@ namespace server.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)")
                         .HasColumnName("created_at");
+
+                    b.Property<int?>("ProductId")
+                        .HasColumnType("int")
+                        .HasColumnName("product_id");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int")
+                        .HasColumnName("quantity");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -105,48 +60,13 @@ namespace server.Migrations
                     b.HasKey("Id")
                         .HasName("pk_orders");
 
+                    b.HasIndex("ProductId")
+                        .HasDatabaseName("ix_orders_product_id");
+
                     b.HasIndex("UserId")
                         .HasDatabaseName("ix_orders_user_id");
 
                     b.ToTable("orders", (string)null);
-                });
-
-            modelBuilder.Entity("server.Models.OrderItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("id");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int")
-                        .HasColumnName("order_id");
-
-                    b.Property<decimal>("Price")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)")
-                        .HasColumnName("price");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int")
-                        .HasColumnName("product_id");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int")
-                        .HasColumnName("quantity");
-
-                    b.HasKey("Id")
-                        .HasName("pk_order_items");
-
-                    b.HasIndex("OrderId")
-                        .HasDatabaseName("ix_order_items_order_id");
-
-                    b.HasIndex("ProductId")
-                        .HasDatabaseName("ix_order_items_product_id");
-
-                    b.ToTable("order_items", (string)null);
                 });
 
             modelBuilder.Entity("server.Models.Product", b =>
@@ -162,10 +82,6 @@ namespace server.Migrations
                         .IsRequired()
                         .HasColumnType("longtext")
                         .HasColumnName("badge");
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int")
-                        .HasColumnName("category_id");
 
                     b.Property<string>("ImageUrl")
                         .IsRequired()
@@ -199,9 +115,6 @@ namespace server.Migrations
 
                     b.HasKey("Id")
                         .HasName("pk_products");
-
-                    b.HasIndex("CategoryId")
-                        .HasDatabaseName("ix_products_category_id");
 
                     b.ToTable("products", (string)null);
                 });
@@ -248,29 +161,13 @@ namespace server.Migrations
                     b.ToTable("users", (string)null);
                 });
 
-            modelBuilder.Entity("server.Models.CartItem", b =>
+            modelBuilder.Entity("server.Models.Order", b =>
                 {
                     b.HasOne("server.Models.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_cart_items_products_product_id");
+                        .HasConstraintName("fk_orders_products_product_id");
 
-                    b.HasOne("server.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_cart_items_users_user_id");
-
-                    b.Navigation("Product");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("server.Models.Order", b =>
-                {
                     b.HasOne("server.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
@@ -278,50 +175,9 @@ namespace server.Migrations
                         .IsRequired()
                         .HasConstraintName("fk_orders_users_user_id");
 
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("server.Models.OrderItem", b =>
-                {
-                    b.HasOne("server.Models.Order", "Order")
-                        .WithMany("OrderItems")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_order_items_orders_order_id");
-
-                    b.HasOne("server.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_order_items_products_product_id");
-
-                    b.Navigation("Order");
-
                     b.Navigation("Product");
-                });
 
-            modelBuilder.Entity("server.Models.Product", b =>
-                {
-                    b.HasOne("server.Models.Category", "Category")
-                        .WithMany("Products")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_products_categories_category_id");
-
-                    b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("server.Models.Category", b =>
-                {
-                    b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("server.Models.Order", b =>
-                {
-                    b.Navigation("OrderItems");
+                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

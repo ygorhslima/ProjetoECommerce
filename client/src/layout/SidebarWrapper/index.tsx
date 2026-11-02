@@ -1,28 +1,23 @@
 import './style.css'
 import { Outlet } from "react-router-dom";
 import Header from "../Header";
-import SidebarLayout from "../SidebarLayout";
-import { useState } from "react";
 import Footer from '../Footer';
 import CartComponent from '../CartComponent';
+import { useCart } from "../../context/CartContext";
 
 export default function SidebarWrapper() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [isCartComponent, setIsCartComponent] = useState(false);
+  const { isCartOpen, toggleCart, closeCart } = useCart();
 
-  const onToggleMenu = () => setIsSidebarOpen(!isSidebarOpen);
-  const onToggleCartComponent = () => setIsCartComponent(!isCartComponent);
   return (
     <div className="layout-wrapper">
-      <SidebarLayout isOpen={isSidebarOpen}/>
       <div className="wrapper">
-        <Header onToggleMenu={onToggleMenu} onToggleCartComponent={onToggleCartComponent}/>
+        <Header onToggleCartComponent={toggleCart}/>
         <main>
           <Outlet />
         </main>
         <Footer/>
       </div>
-      {isCartComponent && <CartComponent onClose={onToggleCartComponent} />}
+      {isCartOpen && <CartComponent onClose={closeCart} />}
     </div>
   );
 }

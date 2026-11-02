@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import type { Product } from "../interfaces/Product";
 import { productService } from "../services/productService";
 
-const useProduct = (searchTerm = "", idCategory?: string | number) => {
+const useProduct = (searchTerm = "") => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
   
   useEffect(() => {
+    //AbortController = interface que representa um objeto controlador que permite abortar uma ou mais solicitações da Web como e quando desejado
     const controller = new AbortController();
 
     const loadProducts = async () => {
@@ -16,7 +17,8 @@ const useProduct = (searchTerm = "", idCategory?: string | number) => {
         setError(null);
         const productData = await productService.getAll(controller.signal);
         setProducts(productData);
-      } catch (error) {
+      } 
+      catch (error) {
         if (!controller.signal.aborted) {
           setError(
             error instanceof Error
@@ -38,12 +40,7 @@ const useProduct = (searchTerm = "", idCategory?: string | number) => {
   const normalizedSearchTerm = searchTerm.trim().toLowerCase();
   const filteredProducts = products.filter((product) => {
     const matchesSearch = product.name.toLowerCase().includes(normalizedSearchTerm);
-    const matchesCategory =
-      idCategory === undefined ||
-      idCategory === "" ||
-      product.categoryId === Number(idCategory);
-
-    return matchesSearch && matchesCategory;
+    return matchesSearch;
   });
 
   return { products: filteredProducts, loading, error };

@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { API_ENDPOINTS } from "../constants/endpoints";
-import type { Category } from "../interfaces/Category";
 import type { Product } from "../interfaces/Product";
 
 const getJson = async <T,>(url: string, signal?: AbortSignal): Promise<T> => {
@@ -17,8 +16,6 @@ const getJson = async <T,>(url: string, signal?: AbortSignal): Promise<T> => {
 export const productService = {
   getAll: (signal?: AbortSignal) =>
     getJson<Product[]>(API_ENDPOINTS.PRODUCT, signal),
-
-  getCategories: () => getJson<Category[]>(API_ENDPOINTS.CATEGORY),
 
   delete: (id: number) =>
     fetch(`${API_ENDPOINTS.PRODUCT}/${id}`, {

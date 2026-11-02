@@ -6,7 +6,6 @@ namespace server.Features.product
     {
         public static ProductReadDto ToRead(this Product product) => new(
             product.Id,
-            product.CategoryId,
             product.Name,
             product.Price,
             product.OriginalPrice,
@@ -21,7 +20,6 @@ namespace server.Features.product
         {
             return new()
             {
-                CategoryId = dto.CategoryId,
                 Name = dto.Name,
                 Price = dto.Price,
                 OriginalPrice = dto.OriginalPrice,
@@ -33,7 +31,6 @@ namespace server.Features.product
         }
         public static void ToUpdate(this Product product, ProductUpdateDto dto)
         {
-            product.CategoryId = dto.CategoryId;
             product.Name = dto.Name;
             product.Price = dto.Price;
             product.OriginalPrice = dto.OriginalPrice;
