@@ -1,0 +1,56 @@
+.page-form{
+    display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #27846C;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container-form{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px 24px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) ;
+}
+.content-input{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    margin-top: 10px;
+}
+.content-input .form-input{
+    display: flex;
+    flex-direction: column;
+    padding: 12px 14px;
+    border-radius: 2px;
+    font-size: 1rem;
+    background-color: #f9fafb;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    border: 1px solid #d1d5db;
+}
+.form-input:focus{
+    border-color: #27846C;
+
+}
+.content-input .form-btn{
+    background-color: #27846C;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+    width: 100%;
+    transition: 0.7s;
+}
+
+.form-link{
+    margin: 10px;
+    text-align: center;
+}

@@ -1,3 +1,7 @@
+.link-router{
+  color: inherit;
+}
+
 .header {
   font-family: var(--font-titulo);
   background-color: var(--primary);
