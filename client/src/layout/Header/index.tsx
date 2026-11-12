@@ -1,12 +1,11 @@
 import './style.css';
-import { MdFavoriteBorder, MdOutlinePerson } from "react-icons/md";
+import { MdOutlinePerson } from "react-icons/md";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { MdSearch } from 'react-icons/md';
 import { useSearch } from '../../context/SearchContext';
 import { RiShoppingBag4Fill } from 'react-icons/ri';
 import { useCart } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
-import { FaUser } from 'react-icons/fa6';
 
 interface PropsHeader {
     onToggleCartComponent: () => void;
@@ -50,6 +49,8 @@ export default function Header(props: PropsHeader) {
                         </span>
                         <p>Minha conta</p>
                     </button>
+
+                    
                 </div>
             </header>
         </>

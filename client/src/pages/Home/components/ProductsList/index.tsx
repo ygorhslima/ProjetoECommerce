@@ -37,8 +37,8 @@ export default function ProductsList() {
               <div className="info">
                 <p className="name">{el.name}</p>
                 <div className="prices">
-                  <span className="price">R${el.price.toFixed(2)}</span>
-                  <span className="original-price">R${el.originalPrice.toFixed(2)}</span>
+                  <span className="price">R${el.price}</span>
+                  <span className="original-price">R${el.originalPrice}</span>
                 </div>
               </div>
             </div>
